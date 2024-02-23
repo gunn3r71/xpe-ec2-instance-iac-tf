@@ -24,7 +24,7 @@ resource "aws_security_group_rule" "xpe-tf-sg-inbound-http-rule" {
   from_port = 80
   to_port = 80
   cidr_blocks = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.xpe-tf-sg-ec2
+  security_group_id = aws_security_group.xpe-tf-sg-ec2.id
 }
 
 resource "aws_security_group_rule" "xpe-tf-sg-inbound-https-rule" {
@@ -33,7 +33,7 @@ resource "aws_security_group_rule" "xpe-tf-sg-inbound-https-rule" {
   from_port = 443
   to_port = 443
   cidr_blocks = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.xpe-tf-sg-ec2
+  security_group_id = aws_security_group.xpe-tf-sg-ec2.id
 }
 
 resource "aws_security_group_rule" "xpe-tf-sg-inbound-ssh-rule" {
@@ -42,7 +42,7 @@ resource "aws_security_group_rule" "xpe-tf-sg-inbound-ssh-rule" {
   from_port = 22
   to_port = 22
   cidr_blocks = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.xpe-tf-sg-ec2
+  security_group_id = aws_security_group.xpe-tf-sg-ec2.id
 }
 
 resource "aws_security_group_rule" "xpe-tf-sg-outbound" {
@@ -51,14 +51,14 @@ resource "aws_security_group_rule" "xpe-tf-sg-outbound" {
   from_port = 0
   to_port = 0
   cidr_blocks = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.xpe-tf-sg-ec2
+  security_group_id = aws_security_group.xpe-tf-sg-ec2.id
 }
 
 resource "aws_instance" "xpe-ec2-tf-instance" {
   ami = var.imageId
   instance_type = var.instance_type
   key_name = var.key_name
-  vpc_security_group_ids = [ aws_security_group.xpe-tf-sg-ec2 ]
+  vpc_security_group_ids = [ aws_security_group.xpe-tf-sg-ec2.id ]
 
   tags = {
     Name = "ec2-instance-terraform"
