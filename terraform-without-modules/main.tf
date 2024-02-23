@@ -67,7 +67,7 @@ resource "aws_instance" "xpe-ec2-tf-instance" {
 }
 
 resource "aws_eip" "xpe-ec2-tf-eip" {
-  instance = aws_instance.xpe-ec2-tf-instance
+  instance = aws_instance.xpe-ec2-tf-instance.id
   tags = {
     Name = "ec2-eip-terraform"
     Course = "XPe AWS"

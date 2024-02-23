@@ -9,7 +9,7 @@ variable "imageId" {
     type = string
     nullable = false
     description = "Imagem utilizada para criar instância EC2"
-    default = "ami-0b52355f402f774ee"
+    default = "ami-033606fe1cfd7fc48"
 }
 
 variable "key_name" {
