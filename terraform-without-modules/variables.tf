@@ -20,7 +20,7 @@ variable "key_name" {
 variable "instance_type" {
   type = string
   nullable = false
-  default = "t3.small"
+  default = "t3a.small"
   description = "Tipo de instância EC2"
 }
 
