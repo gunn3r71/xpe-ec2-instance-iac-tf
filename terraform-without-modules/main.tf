@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 }
 
 resource "aws_security_group" "xpe-tf-sg-ec2" {
@@ -19,7 +19,7 @@ resource "aws_security_group" "xpe-tf-sg-ec2" {
 }
 
 resource "aws_security_group_rule" "xpe-tf-sg-inbound-http-rule" {
-  type = "igress"
+  type = "ingress"
   protocol = "tcp"
   from_port = 80
   to_port = 80
@@ -28,7 +28,7 @@ resource "aws_security_group_rule" "xpe-tf-sg-inbound-http-rule" {
 }
 
 resource "aws_security_group_rule" "xpe-tf-sg-inbound-https-rule" {
-  type = "igress"
+  type = "ingress"
   protocol = "tcp"
   from_port = 443
   to_port = 443
@@ -37,7 +37,7 @@ resource "aws_security_group_rule" "xpe-tf-sg-inbound-https-rule" {
 }
 
 resource "aws_security_group_rule" "xpe-tf-sg-inbound-ssh-rule" {
-  type = "igress"
+  type = "ingress"
   protocol = "tcp"
   from_port = 22
   to_port = 22
