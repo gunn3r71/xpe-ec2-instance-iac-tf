@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 resource "aws_security_group" "xpe-tf-sg-ec2" {
-  name = "xpe-ec2-instance-tf-sg"
+  name = "xpe-ec2-instance-tf-sg-new"
   vpc_id = var.vpc_id
 }
 
@@ -44,6 +44,16 @@ resource "aws_security_group_rule" "xpe-tf-sg-inbound-ssh-rule" {
   cidr_blocks = ["0.0.0.0/0"]
   security_group_id = aws_security_group.xpe-tf-sg-ec2.id
 }
+
+resource "aws_security_group_rule" "xpe-tf-sg-inbound-mongodb-rule" {
+  type = "ingress"
+  protocol = "tcp"
+  from_port = 27017
+  to_port = 27017
+  cidr_blocks = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.xpe-tf-sg-ec2.id
+}
+
 
 resource "aws_security_group_rule" "xpe-tf-sg-outbound" {
   type = "egress"
