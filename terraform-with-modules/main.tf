@@ -17,6 +17,7 @@ resource "aws_instance" "xpe-ec2-tf-instance" {
   ami = var.imageId
   instance_type = var.instance_type
   key_name = var.key_name
+  
   vpc_security_group_ids = ["${module.xpe-ec2-sg.sg-id}"]
 
   tags = {
