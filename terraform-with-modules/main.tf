@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 module "xpe-ec2-sg" {
-  source = "../sg"
+  source = "./modules/sg"
   vpc_id = var.vpc_id
 }
 
