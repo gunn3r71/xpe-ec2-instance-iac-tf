@@ -1,11 +1,11 @@
 output "instance-id" {
-  value = aws_instance.xpe-ec2-tf-instance.id
+  value = ec2_instance.id
 }
 
-output "subnet-id" {
-  value = aws_instance.xpe-ec2-tf-instance.subnet_id
+output "tags" {
+  value = ec2_instance.tags
 }
 
-output "ip" {
-  value = aws_eip.xpe-ec2-tf-eip.address
+output "tags_all" {
+    value = ec2_instance.tags_all
 }

@@ -1,10 +1,3 @@
-variable "region" {
-    type = string
-    default = "us-east-1"
-    nullable = false
-    description = "Região onde seram provisionados os recursos"
-}
-
 variable "imageId" {
     type = string
     nullable = false
@@ -32,12 +25,15 @@ variable "vpc_id" {
   description = "Id de VPC"
 }
 
+variable "shutdown" {
+    type = bool
+    default = false
+    description = "Define se uma instância pode ou não ser desligada"
+}
+
 variable "tags_propagation" {
-  type = map(string)
-  nullable = true
-  default = {
-    Course = "XPe AWS"
-    Env = "Study"
-  }
-  description = "Tags a serem propagadas"
+    type = map(string)
+    default = {
+    }
+    description = "Tags a serem propagadas"
 }
