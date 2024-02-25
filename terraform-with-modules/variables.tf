@@ -5,7 +5,7 @@ variable "region" {
     description = "Região onde seram provisionados os recursos"
 }
 
-variable "imageId" {
+variable "image_id" {
     type = string
     nullable = false
     description = "Imagem utilizada para criar instância EC2"

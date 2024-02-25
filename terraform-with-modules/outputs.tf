@@ -1,11 +1,7 @@
-# output "instance-id" {
-#   value = ec2_instance.id
-# }
+output "instance-id" {
+  value = "${xpe-ec2-instance.instance_id}"
+}
 
-# output "tags" {
-#   value = ec2_instance.tags
-# }
-
-# output "tags_all" {
-#     value = ec2_instance.tags_all
-# }
+output "tags" {
+  value = "${xpe-ec2-instance.tags}"
+}

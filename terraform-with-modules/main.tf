@@ -13,18 +13,23 @@ provider "aws" {
   region = var.region
 }
 
-module "ec2_instance" {
-  source = "./modules/ec2"
-  key_name = var.key_name
-  imageId = var.imageId
+module "xpe-ec2-sg" {
+  source = "../sg"
   vpc_id = var.vpc_id
-  tags_propagation = var.tags_propagation
 }
 
-module "ec2_instance2" {
+module "xpe-ec2-instance" {
   source = "./modules/ec2"
   key_name = var.key_name
-  imageId = var.imageId
-  vpc_id = var.vpc_id
+  image_id = var.image_id
   tags_propagation = var.tags_propagation
+  sg_id = "${xpe-ec2-sg.sg-id}"
+}
+
+module "xpe-ec2_instance2" {
+  source = "./modules/ec2"
+  key_name = var.key_name
+  image_id = var.image_id
+  tags_propagation = var.tags_propagation
+  sg_id = "${xpe-ec2-sg.sg-id}"
 }

@@ -1,4 +1,4 @@
-variable "imageId" {
+variable "image_id" {
     type = string
     nullable = false
     description = "Imagem utilizada para criar instância EC2"
@@ -19,16 +19,16 @@ variable "instance_type" {
   description = "Tipo de instância EC2"
 }
 
-variable "vpc_id" {
-  type = string
-  nullable = false
-  description = "Id de VPC"
-}
-
 variable "shutdown" {
     type = bool
     default = true
     description = "Define se uma instância pode ou não ser desligada"
+}
+
+variable "sg_id" {
+  type = string
+  nullable = false
+  description = "Id do security group"
 }
 
 variable "tags_propagation" {
