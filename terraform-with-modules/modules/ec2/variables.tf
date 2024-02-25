@@ -27,7 +27,7 @@ variable "vpc_id" {
 
 variable "shutdown" {
     type = bool
-    default = false
+    default = true
     description = "Define se uma instância pode ou não ser desligada"
 }
 

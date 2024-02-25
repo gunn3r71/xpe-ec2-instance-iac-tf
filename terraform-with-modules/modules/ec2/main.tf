@@ -8,6 +8,7 @@ resource "aws_instance" "xpe-ec2-tf-instance" {
     Name = "ec2-instance-terraform"
     Shutdown = var.shutdown
   }
+  tags_all = var.tags_propagation
 }
 
 resource "aws_eip" "xpe-ec2-tf-eip" {
